@@ -10,7 +10,15 @@ namespace Hofi
     {
         static void Main(string[] args)
         {
+            Program myProgram = new Program();
+            myProgram.Main();
 
+        }
+
+        private void Main()
+        {
+            Menu mainmenu = new Menu();
+            mainmenu.MainMenu();
         }
     }
 }
