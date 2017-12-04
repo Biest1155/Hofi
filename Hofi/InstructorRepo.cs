@@ -10,14 +10,11 @@ namespace Hofi
 {
     class InstructorRepo
     {
-        private static string connectionString = "Server=ealdb1.eal.local; Database= DB2017_A28; User ID=USER_A28; Password=SesamLukOp_28;";
-        
-        
-        private string Navn = Console.ReadLine();
-        private string Email = Console.ReadLine();
-        private string Ansat = Console.ReadLine();
+        private static string connectionString = "Server=EALSQL1.eal.local; Database= DB2017_A28; User ID = USER_A28; Password=SesamLukOp_28;";
 
-        private void AddInstructorSQL()
+
+      
+        public void AddInstructorSQL()
         {
             Console.Write("Indtast medlemsnr: ");
             string Medlemsnr = Console.ReadLine();
@@ -44,6 +41,13 @@ namespace Hofi
                     AddInstructor.Parameters.Add(new SqlParameter("@Ansat", Ansat));
 
                     AddInstructor.ExecuteNonQuery();
+
+                    Console.WriteLine("Instruktør tilføjet!");
+                    Console.ReadLine();
+
+                    Menu mainmenu = new Menu();
+                    mainmenu.MainMenu();
+
                 }
                 catch (SqlException e)
                 {

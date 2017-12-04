@@ -8,10 +8,12 @@ namespace Hofi
 {
     class Menu
     {
-         string choice = "";
+        
+        string choice = "";
         Menu mainmenu { get; set; }
         public void MainMenu()
         {
+        
             bool running = true;
               do
             {
@@ -59,7 +61,7 @@ namespace Hofi
                     ShowWatches();
                     break;
             }
-            Console.ReadLine();
+            
         }
         private void ShowWatches()
         {
@@ -95,7 +97,8 @@ namespace Hofi
         private void AddInstructor()
         {
             Console.Clear();
-            Console.WriteLine("Implement this method");
+            InstructorRepo I_Repo = new InstructorRepo();
+            I_Repo.AddInstructorSQL();
         }
         private void DeleteInstructor()
         {
@@ -131,7 +134,7 @@ namespace Hofi
                     RegistrerWatch();
                     break;
             }
-            Console.ReadLine();
+           
         }
 
         private void ChangeName()
