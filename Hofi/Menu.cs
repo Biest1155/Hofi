@@ -78,25 +78,24 @@ namespace Hofi
             }
             Console.ReadLine();
         }
-       
+
         private void DeleteInstructor()
         {
             Console.Clear();
-            Console.WriteLine("Implement this method");
-
-        }
-
-        private void ChangeInstructor()
-        {
-            Console.Clear();
-            Console.WriteLine("Implement this method");
-
+            Console.WriteLine("Implement this method33");
         }
 
         private void AddInstructor()
         {
             Console.Clear();
-            Console.WriteLine("Implement this method");
+            Console.WriteLine("Implement this method11");
+        }
+
+        private void ChangeInstructor()
+        {
+            Console.Clear();
+            Console.WriteLine("Implement this method22");
+
         }
 
         private void ShowMenuSelectionError()
