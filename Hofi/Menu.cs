@@ -8,11 +8,12 @@ namespace Hofi
 {
     class Menu
     {
+         string choice = "";
         Menu mainmenu { get; set; }
         public void MainMenu()
         {
             bool running = true;
-            string choice = "";
+          
             do
             {
                 ShowMenu();
@@ -46,13 +47,58 @@ namespace Hofi
         }
         private void DoActionFor1()
         {
-            
+          
+
+
         }
 
         private void DoActionFor2()
         {
-            
+            Console.Clear();
+            Console.WriteLine("HØJBY FITNESS");
+            Console.WriteLine();
+            Console.WriteLine("1. Tilføj ny instruktør");
+            Console.WriteLine("2. Ændre en instruktør");
+            Console.WriteLine("3. Slet en instruktør");
+            Console.WriteLine();
+            Console.WriteLine("0. Luk");
+            Console.ReadLine();
+
+            switch (choice)
+            {
+                case "1":
+                    AddInstructor();
+                    break;
+                case "2":
+                    ChangeInstructor();
+                    break;
+                case "3":
+                    DeleteInstructor();
+                    break;
+            }
+            Console.ReadLine();
         }
+       
+        private void DeleteInstructor()
+        {
+            Console.Clear();
+            Console.WriteLine("Implement this method");
+
+        }
+
+        private void ChangeInstructor()
+        {
+            Console.Clear();
+            Console.WriteLine("Implement this method");
+
+        }
+
+        private void AddInstructor()
+        {
+            Console.Clear();
+            Console.WriteLine("Implement this method");
+        }
+
         private void ShowMenuSelectionError()
         {
             Console.WriteLine("Fejl. Forkert valg");
