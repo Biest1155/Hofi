@@ -6,13 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hofi
 {
-    class Program
+    class Menu
     {
-        static void Main(string[] args)
-        {
-            //Change
-            //change T
-            //change 2
-        }
     }
 }
