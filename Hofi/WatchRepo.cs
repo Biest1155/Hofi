@@ -28,7 +28,7 @@ namespace Hofi
                 {
                     con.Open();
 
-                   SqlCommand FitnessWatch = new SqlCommand("spRegisterWatch");
+                   SqlCommand FitnessWatch = new SqlCommand("spRegisterWatch", con);
                     FitnessWatch.Parameters.Add(new SqlParameter("@Medlemsnr", medlemsnr));
                     FitnessWatch.Parameters.Add(new SqlParameter("@Type", "Fitness"));
                     FitnessWatch.Parameters.Add(new SqlParameter("@Dato", dato));
