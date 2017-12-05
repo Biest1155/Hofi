@@ -16,7 +16,7 @@ namespace Hofi
       
         public void AddInstructorSQL()
         {
-            Console.Write("Indtast medlemsnr(hofixxxx): ");
+            Console.Write("Indtast medlemsnr(hofiXXXX): ");
             string Medlemsnr = Console.ReadLine();
             Console.Write("Indtast navn: ");
             string Navn = Console.ReadLine();
