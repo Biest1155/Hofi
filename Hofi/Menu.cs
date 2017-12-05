@@ -131,7 +131,7 @@ namespace Hofi
                     ChangePhonenumber();
                     break;
                 case "4":
-                    RegistrerWatch();
+                    RegisterWatch();
                     break;
             }
            
@@ -152,7 +152,7 @@ namespace Hofi
             Console.Clear();
             Console.WriteLine("Implement this method11");
         }
-        private void RegistrerWatch() //4
+        private void RegisterWatch() //4
         {
             Console.Clear();
             Console.WriteLine("HØJBY FITNESS");
@@ -177,7 +177,8 @@ namespace Hofi
         private void FitnessWatch()
         {
             Console.Clear();
-            Console.WriteLine("Implement this method");
+            WatchRepo WatchRepo1 = new WatchRepo();
+            WatchRepo1.RegisterFitnessWatch();
         }
         private void SpinningWatch()
         {
