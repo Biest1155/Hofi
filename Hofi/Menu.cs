@@ -8,13 +8,13 @@ namespace Hofi
 {
     class Menu
     {
-        
+        bool running = true;
         string choice = "";
         Menu mainmenu { get; set; }
         public void MainMenu()
         {
         
-            bool running = true;
+           
               do
             {
                 ShowMenu();
