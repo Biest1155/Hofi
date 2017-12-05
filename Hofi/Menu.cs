@@ -183,7 +183,8 @@ namespace Hofi
         private void SpinningWatch()
         {
             Console.Clear();
-            Console.WriteLine("Implement this method");
+            WatchRepo WatchRepo2 = new WatchRepo();
+            WatchRepo2.RegisterSpinningWatch();
         }
         private void ShowMenuSelectionError()
         {
