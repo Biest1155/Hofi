@@ -29,12 +29,19 @@ namespace Hofi
                     con.Open();
 
                    SqlCommand FitnessWatch = new SqlCommand("spRegisterWatch", con);
+                    FitnessWatch.CommandType = System.Data.CommandType.StoredProcedure;
                     FitnessWatch.Parameters.Add(new SqlParameter("@Medlemsnr", medlemsnr));
                     FitnessWatch.Parameters.Add(new SqlParameter("@Type", "Fitness"));
                     FitnessWatch.Parameters.Add(new SqlParameter("@Dato", dato));
                     FitnessWatch.Parameters.Add(new SqlParameter("@Honorar", "75"));
 
                     FitnessWatch.ExecuteNonQuery();
+
+                    Console.Clear();
+                    Console.WriteLine("Fitnessvagt tilføjet for " + medlemsnr + ".");
+
+                    Menu mainmenu = new Menu();
+                    mainmenu.MainMenu();
                 }
                 catch (SqlException e)
                 {
