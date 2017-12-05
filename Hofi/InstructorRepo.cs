@@ -16,13 +16,13 @@ namespace Hofi
       
         public void AddInstructorSQL()
         {
-            Console.Write("Indtast medlemsnr: ");
+            Console.Write("Indtast medlemsnr(hofixxxx): ");
             string Medlemsnr = Console.ReadLine();
             Console.Write("Indtast navn: ");
             string Navn = Console.ReadLine();
             Console.Write("Indtast Email: ");
             string Email = Console.ReadLine();
-            Console.Write("Indtast dato for ansættelse");
+            Console.Write("Indtast dato for ansættelse(dd.mm.yyyy): ");
             string Ansat = Console.ReadLine();
 
             using (SqlConnection con = new SqlConnection(connectionString))
