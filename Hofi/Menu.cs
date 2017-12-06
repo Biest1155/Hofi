@@ -152,7 +152,7 @@ namespace Hofi
             Console.Clear();
             Console.WriteLine("Implement this method11");
         }
-        private void RegisterWatch() //4
+        private void RegisterWatch()
         {
             Console.Clear();
             Console.WriteLine("HØJBY FITNESS");
@@ -162,29 +162,27 @@ namespace Hofi
             Console.WriteLine();
             Console.WriteLine("0. Luk");
             choice = GetUserChoice();
+
+            
+
             switch (choice)
             {
                 case "1":
-                    FitnessWatch();
+                    spinningOrFitnessWatch("Fitness");
                     break;
                 case "2":
-                    SpinningWatch();
+                    spinningOrFitnessWatch("Spinning");
                     break;
 
             }
             Console.ReadLine();
         }
-        private void FitnessWatch()
-        {
-            Console.Clear();
-            WatchRepo WatchRepo1 = new WatchRepo();
-            WatchRepo1.RegisterFitnessWatch();
-        }
-        private void SpinningWatch()
+       
+        private void spinningOrFitnessWatch(string watchType)
         {
             Console.Clear();
             WatchRepo WatchRepo2 = new WatchRepo();
-            WatchRepo2.RegisterSpinningWatch();
+            WatchRepo2.RegisterWatch(watchType);
         }
         private void ShowMenuSelectionError()
         {
