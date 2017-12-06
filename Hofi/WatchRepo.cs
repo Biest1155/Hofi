@@ -21,7 +21,7 @@ namespace Hofi
             string medlemsnr = Console.ReadLine();
             Console.Write("Indtast dato(dd.mm.yyyy): ");
             string dato = Console.ReadLine();
-
+            
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 try
@@ -45,25 +45,69 @@ namespace Hofi
         }
         public void RegisterSpinningWatch()
         {
+            int salary = 0;
+            string startDate = "";
+
             Console.Write("Indtast medlemsnr(hofiXXXX): ");
             string medlemsnr = Console.ReadLine();
             Console.Write("Indtast dato(dd.mm.yyyy): ");
-            string dato = Console.ReadLine();
+            string date = Console.ReadLine();
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 try
                 {
+
                     con.Open();
 
-                    SqlCommand SpinningWatch = new SqlCommand("spRegisterWatch", con);
-                    SpinningWatch.CommandType = System.Data.CommandType.StoredProcedure;
-                    SpinningWatch.Parameters.Add(new SqlParameter("@Medlemsnr", medlemsnr));
-                    SpinningWatch.Parameters.Add(new SqlParameter("@Type", "Spinning"));
-                    SpinningWatch.Parameters.Add(new SqlParameter("@Dato", dato));
-                    SpinningWatch.Parameters.Add(new SqlParameter("@Honorar", "75"));
+                    //startDate for employee
 
-                    SpinningWatch.ExecuteNonQuery();
+                    SqlCommand getStartDate = new SqlCommand("spGetStartDate", con);
+                    getStartDate.CommandType = CommandType.StoredProcedure;
+                    getStartDate.Parameters.Add(new SqlParameter("@Medlemsnr", medlemsnr));
+
+                    SqlDataReader reader = getStartDate.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            startDate = reader["Ansat"].ToString();
+                        }
+                    }
+
+                    reader.Close();
+
+                    DateTime employmentDate = DateTime.Parse(startDate);
+
+                    DateTime watchDate = DateTime.Parse(date);
+
+                    watchDate = watchDate.AddYears(-3);
+
+                    if (employmentDate <= watchDate)
+                    {
+                        salary = 100;
+
+                    }
+                    else
+                    {
+                        salary = 75;
+                    }
+
+
+                        SqlCommand spinningWatch = new SqlCommand("spRegisterWatch", con);
+                        spinningWatch.CommandType = System.Data.CommandType.StoredProcedure;
+                        spinningWatch.Parameters.Add(new SqlParameter("@Medlemsnr", medlemsnr));
+                        spinningWatch.Parameters.Add(new SqlParameter("@Type", "Spinning"));
+                        spinningWatch.Parameters.Add(new SqlParameter("@Dato", date));
+                        spinningWatch.Parameters.Add(new SqlParameter("@Honorar", salary));
+
+                        spinningWatch.ExecuteNonQuery();
+
+                        Console.Clear();
+                        Console.WriteLine("Vagt tilføjet");
+
+                    
                 }
                 catch (SqlException e)
                 {
