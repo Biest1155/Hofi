@@ -29,12 +29,47 @@ namespace Hofi
                     con.Open();
 
                    SqlCommand FitnessWatch = new SqlCommand("spRegisterWatch", con);
+                    FitnessWatch.CommandType = System.Data.CommandType.StoredProcedure;
                     FitnessWatch.Parameters.Add(new SqlParameter("@Medlemsnr", medlemsnr));
                     FitnessWatch.Parameters.Add(new SqlParameter("@Type", "Fitness"));
                     FitnessWatch.Parameters.Add(new SqlParameter("@Dato", dato));
                     FitnessWatch.Parameters.Add(new SqlParameter("@Honorar", "75"));
 
                     FitnessWatch.ExecuteNonQuery();
+
+                    Console.Clear();
+                    Console.WriteLine("Fitnessvagt tilføjet for " + medlemsnr + ".");
+
+                    Menu mainmenu = new Menu();
+                    mainmenu.MainMenu();
+                }
+                catch (SqlException e)
+                {
+                    Console.WriteLine("FEJL: " + e.Message);
+                }
+            }
+        }
+        public void RegisterSpinningWatch()
+        {
+            Console.Write("Indtast medlemsnr(hofiXXXX): ");
+            string medlemsnr = Console.ReadLine();
+            Console.Write("Indtast dato(dd.mm.yyyy): ");
+            string dato = Console.ReadLine();
+
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    con.Open();
+
+                    SqlCommand SpinningWatch = new SqlCommand("spRegisterWatch", con);
+                    SpinningWatch.CommandType = System.Data.CommandType.StoredProcedure;
+                    SpinningWatch.Parameters.Add(new SqlParameter("@Medlemsnr", medlemsnr));
+                    SpinningWatch.Parameters.Add(new SqlParameter("@Type", "Spinning"));
+                    SpinningWatch.Parameters.Add(new SqlParameter("@Dato", dato));
+                    SpinningWatch.Parameters.Add(new SqlParameter("@Honorar", "75"));
+
+                    SpinningWatch.ExecuteNonQuery();
                 }
                 catch (SqlException e)
                 {
