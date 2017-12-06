@@ -36,6 +36,12 @@ namespace Hofi
                     FitnessWatch.Parameters.Add(new SqlParameter("@Honorar", "75"));
 
                     FitnessWatch.ExecuteNonQuery();
+
+                    Console.Clear();
+                    Console.WriteLine("Fitnessvagt tilføjet for " + medlemsnr + ".");
+
+                    Menu mainmenu = new Menu();
+                    mainmenu.MainMenu();
                 }
                 catch (SqlException e)
                 {
