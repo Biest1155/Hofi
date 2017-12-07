@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Net.Mail;
 
 namespace Hofi
 {
@@ -14,7 +15,7 @@ namespace Hofi
 
         public void RegisterWatch(string fitnessOrSpinning)
         {
-            
+
             string type = fitnessOrSpinning;
             int salary = 0;
             string startDate = "";
@@ -64,25 +65,34 @@ namespace Hofi
                     }
 
 
-                        SqlCommand spinningWatch = new SqlCommand("spRegisterWatch", con);
-                        spinningWatch.CommandType = System.Data.CommandType.StoredProcedure;
-                        spinningWatch.Parameters.Add(new SqlParameter("@Medlemsnr", medlemsnr));
-                        spinningWatch.Parameters.Add(new SqlParameter("@Type", type));
-                        spinningWatch.Parameters.Add(new SqlParameter("@Dato", date));
-                        spinningWatch.Parameters.Add(new SqlParameter("@Honorar", salary));
+                    SqlCommand spinningWatch = new SqlCommand("spRegisterWatch", con);
+                    spinningWatch.CommandType = System.Data.CommandType.StoredProcedure;
+                    spinningWatch.Parameters.Add(new SqlParameter("@Medlemsnr", medlemsnr));
+                    spinningWatch.Parameters.Add(new SqlParameter("@Type", type));
+                    spinningWatch.Parameters.Add(new SqlParameter("@Dato", date));
+                    spinningWatch.Parameters.Add(new SqlParameter("@Honorar", salary));
 
-                        spinningWatch.ExecuteNonQuery();
+                    spinningWatch.ExecuteNonQuery();
 
-                        Console.Clear();
-                        Console.WriteLine("Vagt tilføjet");
+                    Console.Clear();
+                    Console.WriteLine("Vagt tilføjet");
 
-                    
+                    InstructorRepo I_repo2 = new InstructorRepo();
+                    I_repo2.GetMail(medlemsnr, date);
                 }
                 catch (SqlException e)
                 {
                     Console.WriteLine("FEJL: " + e.Message);
                 }
+                catch (FormatException e1)
+                {
+                    Console.WriteLine("FEJL: " + e1.Message);
+                    RegisterWatch(fitnessOrSpinning);
+                }
             }
         }
+
+
+
     }
-    }
+}

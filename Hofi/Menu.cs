@@ -8,6 +8,7 @@ namespace Hofi
 {
     class Menu
     {
+        
         bool running = true;
         string choice = "";
         Menu mainmenu { get; set; }
@@ -136,6 +137,7 @@ namespace Hofi
             }
            
         }
+
 
         private void ChangeName()
         {
