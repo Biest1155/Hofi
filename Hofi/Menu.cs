@@ -8,14 +8,13 @@ namespace Hofi
 {
     class Menu
     {
-        
+        Controller controller = new Controller();
         bool running = true;
         string choice = "";
         Menu mainmenu { get; set; }
         public void MainMenu()
         {
-        
-           
+
               do
             {
                 ShowMenu();
@@ -98,8 +97,17 @@ namespace Hofi
         private void AddInstructor()
         {
             Console.Clear();
-            InstructorRepo I_Repo = new InstructorRepo();
-            I_Repo.AddInstructorSQL();
+
+            Console.Write("Indtast medlemsnr(hofiXXXX): ");
+            string memberNumber = Console.ReadLine();
+            Console.Write("Indtast navn: ");
+            string name = Console.ReadLine();
+            Console.Write("Indtast Email: ");
+            string mail = Console.ReadLine();
+            Console.Write("Indtast dato for ansættelse(dd.mm.yyyy): ");
+            string hireDate = Console.ReadLine();
+
+            controller.AddInstructorSQL(memberNumber, name, mail, hireDate);
         }
         private void DeleteInstructor()
         {
@@ -183,9 +191,17 @@ namespace Hofi
         private void spinningOrFitnessWatch(string watchType)
         {
             Console.Clear();
-            WatchRepo WatchRepo2 = new WatchRepo();
-            WatchRepo2.RegisterWatch(watchType);
+
+            Console.Write("Indtast medlemsnr(hofiXXXX): ");
+            string memberNumber = Console.ReadLine();
+            Console.Write("Indtast dato(dd.mm.yyyy): ");
+            string date = Console.ReadLine();
+            
+                controller.spinningOrFitnessController(watchType, memberNumber, date);
+
         }
+
+
         private void ShowMenuSelectionError()
         {
             Console.WriteLine("Fejl. Forkert valg");

@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller.cs" />
+    <Compile Include="DatabaseConnectionPoint.cs" />
     <Compile Include="Instructor.cs" />
     <Compile Include="InstructorRepo.cs" />
     <Compile Include="Menu.cs" />
