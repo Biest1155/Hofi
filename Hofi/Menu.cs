@@ -53,7 +53,7 @@ namespace Hofi
             Console.WriteLine();
             Console.WriteLine("1. Vis Vagter");
             Console.WriteLine();
-            Console.WriteLine("0. Luk");
+            Console.WriteLine("0. Tilbage");
             choice = GetUserChoice();
             switch (choice)
             {
@@ -78,7 +78,7 @@ namespace Hofi
             Console.WriteLine("2. Ændre en instruktør");
             Console.WriteLine("3. Slet en instruktør");
             Console.WriteLine();
-            Console.WriteLine("0. Luk");
+            Console.WriteLine("0. Tilbage");
             choice = GetUserChoice();
             switch (choice)
             {
@@ -126,7 +126,7 @@ namespace Hofi
             Console.WriteLine("3. Ændrer telefonnummer");
             Console.WriteLine("4. Registrer vagt");
             Console.WriteLine();
-            Console.WriteLine("0. Luk");
+            Console.WriteLine("0. Tilbage");
             choice = GetUserChoice();
             switch (choice)
             {
@@ -170,7 +170,7 @@ namespace Hofi
             Console.WriteLine("1. Fitness vagt");
             Console.WriteLine("2. Spinning vagt");
             Console.WriteLine();
-            Console.WriteLine("0. Luk");
+            Console.WriteLine("0. Tilbage");
             choice = GetUserChoice();
 
             
